@@ -1,0 +1,9 @@
+INFO 2023-10-07 03:54:42,541 autoreload 13796 9652 Watching for file changes with StatReloader
+INFO 2023-10-07 03:57:14,495 autoreload 2028 14292 Watching for file changes with StatReloader
+INFO 2023-10-07 03:58:13,069 autoreload 10644 9436 Watching for file changes with StatReloader
+WARNING 2023-10-07 03:58:15,044 log 10644 11492 Not Found: /
+WARNING 2023-10-07 03:58:15,044 basehttp 10644 11492 "GET / HTTP/1.1" 404 2429
+INFO 2023-10-07 03:58:19,864 basehttp 10644 11492 "GET /apps HTTP/1.1" 301 0
+INFO 2023-10-07 03:58:19,867 basehttp 10644 12696 "GET /apps/ HTTP/1.1" 200 40
+INFO 2023-10-07 04:31:28,606 autoreload 10644 9436 F:\projects_1\my_testing_project\softapp\urls.py changed, reloading.
+INFO 2023-10-07 04:31:29,085 autoreload 10568 8252 Watching for file changes with StatReloader
