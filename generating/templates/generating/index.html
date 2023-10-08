@@ -1,0 +1,30 @@
+{% extends 'generating/base.html' %}
+
+{% block title %}
+    Полезные приложения
+{% endblock %}
+
+{% block content %}
+<div class="container">
+        <h1 class="mt-5">Мои проекты</h1>
+
+        <!-- Первая кнопка с использованием Bootstrap-классов -->
+        <div class="mt-3">
+            <a href="{% url 'generating:index' %}" class="btn btn-primary">Generating password</a>
+        </div>
+
+        <!-- Вторая кнопка -->
+        <div class="mt-3">
+            <a href="{% url 'portfolio:index' %}" class="btn btn-success">My portfolio</a>
+        </div>
+
+        <!-- Третья кнопка -->
+        <div class="mt-3">
+            <a href="#" class="btn btn-info">Coming soon</a>
+        </div>
+    </div>
+
+    <!-- Подключение библиотеки jQuery и Bootstrap JavaScript (необходимо для работы Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

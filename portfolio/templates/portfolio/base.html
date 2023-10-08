@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon", type="image/png", href="{% static 'images/logos.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Подключение библиотеки Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Определение класса с эффектом увеличения */
+        .zoom-effect {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Применение эффекта при наведении */
+        .zoom-effect:hover {
+            transform: scale(1.1); /* Увеличение масштаба при наведении */
+        }
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px); /* Добавляем размытие */
+        }
+    </style>
+</head>
+<!-- Шапка -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'portfolio:index' %}">
+            <img src="{% static 'images/logos.png' %}" width="30" height="30" alt="Логотип">
+            My portfolio
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog:create' %}">Создать пост</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:index' %}">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/kawr13">Мой GitHub</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+{% if title == "My portfolio" %}
+    <body class="bg-dark">
+{% else %}
+    <body>
+{% endif %}
+{% block content %}{% endblock %}
+
+</body>
+<!-- Модальное окно с контактами -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Мои контакты</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Тип</th>
+                            <th>Контакт</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Email</td>
+                            <td>example@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Телефон</td>
+                            <td>+123456789</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

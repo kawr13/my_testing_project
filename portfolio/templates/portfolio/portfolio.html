@@ -1,0 +1,52 @@
+{% extends 'portfolio/base.html ' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    <!-- Блок с заголовком и текстом по центру -->
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="text-white">Portfolio Alex/Kawr</h1>
+            <p>
+                <div class="container mt-5">
+                    <div class="text-center">
+                        <h2 class="text-white font-weight-bold">Приветствую вас в моем портфолио Алекса</h2>
+                        <p class="text-white">
+                            Место, где код становится живописным и Django волшебством!
+                            <span>🚀</span> Здесь вы найдете мой путь в мир программирования,
+                            где каждая строка кода – это искусство, а каждый проект – приключение.
+                            Добро пожаловать в мой мир кода, где нет предела фантазии и невозможности
+                            – только бесконечные возможности для создания чудес! <span>🌟</span>
+                        </p>
+                    </div>
+                </div>
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Три миниатюры с описаниями -->
+
+    <div class="container mt-5">
+        <div class="row">
+            {% for project in projects %}
+                <div class="col-md-4 mb-4">
+                    <div class="card zoom-effect">
+                        <div class="card">
+                            <img src="{{ project.image.url }}" class="card-img-top" alt="Миниатюра 1">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ project.title }}</h5>
+                                <p class="card-text">{{ project.description }}</p>
+                                <a href="{% if not project.url_address %}#{% else %}{{ project.url_address }}{% endif %}" class="btn btn-primary">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+<!-- Подключение библиотеки jQuery и Bootstrap JavaScript (необходимо для работы Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

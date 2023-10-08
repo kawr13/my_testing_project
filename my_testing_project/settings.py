@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'softapp.apps.SoftappConfig',
+    'generating.apps.GeneratingConfig',
+    'portfolio.apps.PortfolioConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -159,6 +162,11 @@ LOGGING = {
             'level': 'INFO',
         },
         'my_testing_project': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'generating': {
             'handlers': ['console', 'file'],
             'level': 'INFO',
             'propagate': True,

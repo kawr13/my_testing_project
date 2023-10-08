@@ -19,18 +19,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from generating.views import index
+from generating.views import generat_pass, password
+
+app_name = 'generating'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('apps/', include('softapp.urls', namespace='softapp')),
-    path('', index, name='index'),
-    path('generating/', include('generating.urls', namespace='generating')),
-    path('portfolio/', include('portfolio.urls', namespace='portfolio')),
-    path('blog/', include('blog.urls', namespace='blog')),
+    path('', generat_pass, name='index'),
+    path('password/', password, name='password'),
 ]
 
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

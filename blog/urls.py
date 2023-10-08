@@ -16,21 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from blog.views import blog, blog_detail, create
 
-from generating.views import index
+app_name = 'blog'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('apps/', include('softapp.urls', namespace='softapp')),
-    path('', index, name='index'),
-    path('generating/', include('generating.urls', namespace='generating')),
-    path('portfolio/', include('portfolio.urls', namespace='portfolio')),
-    path('blog/', include('blog.urls', namespace='blog')),
+    path('', blog, name='index'),
+    path('blog/<int:post_id>/', blog_detail, name='blog_detail'),
+    path('creat/', create, name='create'),
 ]
 
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

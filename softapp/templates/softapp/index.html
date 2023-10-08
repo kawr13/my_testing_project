@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'softapp:index' %}" method="post">
+    {% csrf_token %}
+    <label for="number">Enter number:</label>
+    <input name="num" type="number" id="number">
+    <div>
+        {% firstof password 'Не передали число' %}
+    </div>
+</body>
+</html>
