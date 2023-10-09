@@ -1,4 +1,4 @@
-{% extends 'portfolio/base.html ' %}
+{% extends 'portfolio/base.html' %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -7,12 +7,18 @@
     <h1>{{ title }}</h1>
 <br>
     <ul class="list-group">
-        {% for post in posts %}
-            <li class="list-group-item">
-                <h2><a href="{% url 'blog:blog_detail' post.id %}">{{ post.title }}</a></h2>
-                <p>{{ post.preview }}</p>
-            </li>
-        {% endfor %}
+
+                {% for post in posts %}
+                    <div class="card zoom-effect">
+                        <div class="card">
+                            <li class="list-group-item">
+                                <h2><a href="{% url 'blog:blog_detail' post.id %}">{{ post.title }}</a></h2>
+                                <p>{{ post.preview }}</p>
+                            </li>
+                        </div>
+                    </div>
+                {% endfor %}
+
     </ul>
 </div>
 {% endblock %}
